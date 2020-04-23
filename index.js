@@ -10,10 +10,17 @@ app.use(bodyParser.json());
 // initialize routes
 app.use('/api', require('./routes/api'));
 
+
+// middleware error handler
+app.use(function(err, req, res, next){
+    console.log(err); // to see properties of message in the console
+    res.status(422).send({error: err.message});
+});
+
 // Configuring the database
 const config = require('./config.js');
 const mongoose = require('mongoose');
-//require('./routes/api')(app);
+require('./routes/api')
 
 mongoose.Promise = global.Promise;
 
