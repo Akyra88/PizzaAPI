@@ -1,7 +1,7 @@
 const express = require ('express');
 const router = express.Router();
 
-// get a list of pizza places from the db
+// get a list of pizzeria places from the db
 router.get('/pizzerias', function(req, res){
     res.send({type: 'GET'});
 });
