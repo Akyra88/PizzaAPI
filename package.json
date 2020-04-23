@@ -1,0 +1,28 @@
+{
+  "name": "pizzaapi",
+  "version": "1.0.0",
+  "description": "Find pizza restaurant near you",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akyra88/PizzaAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akyra88/PizzaAPI/issues"
+  },
+  "homepage": "https://github.com/Akyra88/PizzaAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
