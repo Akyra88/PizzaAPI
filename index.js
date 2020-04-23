@@ -13,7 +13,7 @@ app.use('/api', require('./routes/api'));
 // Configuring the database
 const config = require('./config.js');
 const mongoose = require('mongoose');
-//require('./product.routes.js')(app);
+//require('./routes/api')(app);
 
 mongoose.Promise = global.Promise;
 
@@ -27,7 +27,7 @@ mongoose.connect(config.url, {
     process.exit();
 });
 
-// listen on port 4000
+// listen on port 3000
 app.listen(config.serverport, () => {
     console.log("Server is listening on port 3000");
 });
