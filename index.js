@@ -34,9 +34,9 @@ mongoose.connect(config.url, {
     process.exit();
 });
 
-// listen on port 3000
-app.listen(config.serverport, () => {
-    console.log("Server is listening on port 3000");
+// listen for requests
+app.listen(process.env.port || 3000, function(){
+    console.log('now listening for requests');
 });
 
 /*

@@ -16,12 +16,18 @@ router.post('/pizzerias', function(req, res, next){
 
 // update a pizzeria in the db
 router.put('/pizzerias/:id', function(req, res, next){
-    res.send({type: 'PUT'});
+     Pizzeria.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
+        Pizzeria.findOne({_id: req.params.id}).then(function(pizzeria){
+            res.send(pizzeria);
+        });
+    }).catch(next);
 });
 
 // delete a pizzeria from the db
 router.delete('/pizzerias/:id', function(req, res, next){
-    res.send({type: 'DELETE'});
+    Pizzeria.findByIdAndRemove({_id: req.params.id}).then(function(pizzeria){
+        res.send(pizzeria);
+    }).catch(next);
 });
 
 module.exports = router;
