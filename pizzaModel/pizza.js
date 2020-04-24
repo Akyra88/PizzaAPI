@@ -30,6 +30,6 @@ const PizzeriaSchema = new Schema({
 });
 
 const Pizzeria = mongoose.model('pizzeria', PizzeriaSchema);
-
+// export model to be used in other files
 module.exports = Pizzeria;
 

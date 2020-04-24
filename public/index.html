@@ -8,7 +8,7 @@
         <link href="/styles.css" rel="stylesheet" />
     </head>
     <body>
-
+       
         <h1 class="title">ExpressPizza - your Pizza REST API</h1>
         <div id="homepage">
             <h1>Find a pizzeria in your area!</h1>
@@ -40,12 +40,13 @@
                     );
                 });
                 return(
+                    // html form
                     <div id="pizzeria-container">
                         <form id="search" onSubmit={this.handleSubmit}>
                             <label>Enter your Latitude:</label>
-                            <input type="text" ref="lat" placeholder="latitude" required />
+                            <input type="text" ref="lat" placeholder="latitude (range: 24-27)" required />
                             <label>Enter your Longitude:</label>
-                            <input type="text" ref="lng" placeholder="longitude" required />
+                            <input type="text" ref="lng" placeholder="longitude (range: -80/-83)" required />
                             <input type="submit" value="Find Pizzerias" />
                         </form>
                         <ul>{pizzerias}</ul>
@@ -56,7 +57,7 @@
                 e.preventDefault();
                 var lng = this.refs.lng.value;
                 var lat = this.refs.lat.value;
-
+                // get the data from the db and give back to user
                 fetch('/api/pizzerias?lng=' + lng + '&lat=' + lat).then(function(data){
                     return data.json();
                 }).then( json => {
