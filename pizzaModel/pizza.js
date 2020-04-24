@@ -32,3 +32,4 @@ const PizzeriaSchema = new Schema({
 const Pizzeria = mongoose.model('pizzeria', PizzeriaSchema);
 
 module.exports = Pizzeria;
+

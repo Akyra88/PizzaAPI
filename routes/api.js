@@ -3,17 +3,38 @@ const router = express.Router();
 const Pizzeria = require('../pizzaModel/pizza')
 
 // get a list of pizzeria places from the db
-router.get('/pizzerias', function(req, res, next){
+
+/*router.get('/pizzerias', function(req, res, next){
        Pizzeria.find({}).then(function(pizzerias){
         res.send(pizzerias);
-    });/*
-    Pizzeria.geoNear(
+    });
+     Pizzeria.geoNear(
         {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
-        {maxDistance: 100000, spherical: true}
+            {maxDistance: 100000, 
+            spherical: true}
     ).then(function(pizzerias){
         res.send(pizzerias);
-    }).catch(next);*/
+    }).catch(next);
 });
+*/
+
+
+router.get('/pizzerias', function (req, res, next){
+/* Ninja.find({}.then(function(ninjas){
+res.send(ninjas);
+}); */
+
+Pizzeria.aggregate().near({
+near: { type: "point", coordinates: [parseFloat(req.query.lng),parseFloat(req.query.lat)] },
+maxDistance: 100000, // in 10k meters
+spherical: true,
+distanceField: "dis"
+}).then(function(pizzerias){
+console.log(pizzerias)
+res.send(pizzerias)
+}).catch(next);
+});
+
 
 // add a new pizzeria to the db
 router.post('/pizzerias', function(req, res, next){
