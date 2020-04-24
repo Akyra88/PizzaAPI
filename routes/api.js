@@ -4,7 +4,15 @@ const Pizzeria = require('../pizzaModel/pizza')
 
 // get a list of pizzeria places from the db
 router.get('/pizzerias', function(req, res, next){
-    res.send({type: 'GET'});
+       Pizzeria.find({}).then(function(pizzerias){
+        res.send(pizzerias);
+    });/*
+    Pizzeria.geoNear(
+        {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+        {maxDistance: 100000, spherical: true}
+    ).then(function(pizzerias){
+        res.send(pizzerias);
+    }).catch(next);*/
 });
 
 // add a new pizzeria to the db

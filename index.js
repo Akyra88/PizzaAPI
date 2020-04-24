@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 // set up express app
 const app = express();
 
+//set up static files
+app.use(express.static('public'));
+
+
 // use body-parser middleware
 app.use(bodyParser.json());
 
@@ -23,6 +27,7 @@ const mongoose = require('mongoose');
 require('./routes/api')
 
 mongoose.Promise = global.Promise;
+
 
 // Connecting to the database
 mongoose.connect(config.url, {

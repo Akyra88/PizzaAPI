@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 const GeoSchema = new Schema({
     type: {
         type: String,
-        default: 'Point'
+        default: "Point"
     },
     coordinates: {
         type: [Number],
-        index: '2dsphere'
+        index: "2dsphere"
     }
 });
 
