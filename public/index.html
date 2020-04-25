@@ -42,12 +42,13 @@
                 return(
                     // html form
                     <div id="pizzeria-container">
-                        <form id="search" onSubmit={this.handleSubmit}>
+                        <form id="search"  onSubmit={this.handleSubmit} >
                             <label>Enter your Latitude:</label>
                             <input type="text" ref="lat" placeholder="latitude (range: 25-27)" required />
                             <label>Enter your Longitude:</label>
                             <input type="text" ref="lng" placeholder="longitude (range: -80/-83)" required />
                             <input type="submit" value="Find Pizzerias" />
+
                         </form>
                         <ul>{pizzerias}</ul>
                     </div>

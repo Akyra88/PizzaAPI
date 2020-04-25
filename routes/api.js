@@ -5,8 +5,10 @@ const Pizzeria = require('../pizzaModel/pizza')
 
 // get a list of pizzeria places from the db
 router.get('/pizzerias', function (req, res, next){
+     
 Pizzeria.aggregate().near({
-near: { type: "Point", coordinates: [parseFloat(req.query.lng),parseFloat(req.query.lat)] },
+near: { 
+type: "Point", coordinates: [parseFloat(req.query.lng),parseFloat(req.query.lat)] },
 maxDistance: 100000, // in 10k meters
 spherical: true,
 distanceField: "dist"
