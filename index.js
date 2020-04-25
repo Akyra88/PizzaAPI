@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const dotenv = require('dotenv').config();
 
 // set up express app
 const app = express();
@@ -30,7 +30,8 @@ require('./routes/api')
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
-mongoose.connect(config.url, {
+//config.url
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true
 }).then(() => {
     console.log("Successfully connected to the database");    
@@ -40,6 +41,6 @@ mongoose.connect(config.url, {
 });
 
 // listen for requests
-app.listen(process.env.PORT || 3000,  function(){
+app.listen(process.env.PORT || 4000,  function(){
     console.log('now listening for requests');
 });

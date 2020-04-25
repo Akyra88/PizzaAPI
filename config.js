@@ -1,5 +1,5 @@
 // db link for connection
 module.exports = {
-    url: 'mongodb+srv://test:ccttestuser@cluster0-wexcu.mongodb.net/test?retryWrites=true&w=majority',
+    url: '',
     serverport: 3000 
 }
