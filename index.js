@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
 // set up express app
 const app = express();
 
@@ -27,7 +28,6 @@ const mongoose = require('mongoose');
 require('./routes/api')
 
 mongoose.Promise = global.Promise;
-
 
 // Connecting to the database
 mongoose.connect(config.url, {
